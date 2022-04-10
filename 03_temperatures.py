@@ -34,8 +34,12 @@ def main(broker):
     while True:
         sleep(8)
         for key,temp in data['temp'].items():
+            maximo = max(map(lambda x: int(x),temp))
+            minimo = min(map(lambda x: int(x),temp))
             mean = sum(map(lambda x: int(x), temp))/len(temp)
             print(f'mean {key}: {mean}')
+            print(f'maximo {key}: {maximo}')
+            print(f'minimo {key}: {minimo}')
             data[key]=[]
 
 
